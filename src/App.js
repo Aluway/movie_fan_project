@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Home from "./Home";
+import Movie from "./Movie";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Route exact path="/" component={Home} />
+        <Route exact path="/movie/:movieId" component={Movie} />
+      </div>
+    </Router>
   );
 }
 
 export default App;
+
+// const apiKey = "fec8b5ab27b292a68294261bb21b04a5";
+// const singleMovieUrl = "https://api.themoviedb.org/3/movie/"
+// const nowPlayingUrl = "https://api.themoviedb.org/3/movie/now_playing";
+// const imageUrl = "http://image.tmdb.org/t/p/w300";
